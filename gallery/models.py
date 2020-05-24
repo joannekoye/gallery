@@ -53,7 +53,7 @@ class Image(models.Model):
         Location.objects.filter(id = id).update(img_desc = new_desc)
 
     def get_image_by_id(id):
-        img = Location.objects.get(pk = id)
+        img = Image.objects.get(pk = id)
         return img
     
     @classmethod
