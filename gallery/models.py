@@ -9,11 +9,11 @@ class Location(models.Model):
     def save_location(self):
         self.save()
 
-    def delete_location(self, id):
-        self.objects.filter(id=id).delete()
+    def delete_location( id):
+        Location.objects.filter(id=id).delete()
 
-    def update_location(self, id, new_location):
-        self.objects.filter(id=id).update(location= new_location)
+    def update_location(id, new_location):
+        Location.objects.filter(id=id).update(location= new_location)
 
 class Category(models.Model):
     category = models.CharField(max_length=30)
@@ -24,11 +24,11 @@ class Category(models.Model):
     def save_category(self):
         self.save()
 
-    def delete_category(self, id):
-        self.objects.filter(id = id).delete()
+    def delete_category(id):
+        Location.objects.filter(id = id).delete()
     
-    def update_category(self, id, new_category):
-        self.objects.filter(id = id).update(category = new_category)
+    def update_category(id, new_category):
+        Location.objects.filter(id = id).update(category = new_category)
 
 class Image(models.Model):
     img_path = models.ImageField(upload_to= 'images/')
@@ -43,14 +43,17 @@ class Image(models.Model):
     def save_image(self):
         self.save()
 
-    def delete_image(self, id):
-        self.objects.filter(id = id).delete()
+    def delete_image( id):
+        Location.objects.filter(id = id).delete()
     
-    def update_image(self, id, new_path):
-        self.objects.filter(id = id).update(img_path = new_path)
+    def update_image(id, new_path):
+        Location.objects.filter(id = id).update(img_path = new_path)
+    
+    def update_desc(id, new_desc):
+        Location.objects.filter(id = id).update(img_desc = new_desc)
 
-    def get_image_by_id(self, id):
-        img = self.objects.get(pk = id)
+    def get_image_by_id(id):
+        img = Location.objects.get(pk = id)
         return img
     
     @classmethod
