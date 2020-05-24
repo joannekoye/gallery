@@ -25,3 +25,11 @@ def search_page(request):
     else:
         message = 'Please enter a term to be sought for'
         return render(request, 'search.html', {'message': message})
+
+def sort_by_locations(request):
+    '''
+    View function to display images sorted location
+    '''
+
+    images = Image.filter_by_location()
+    return render(request, 'location.html', {'images': images})
