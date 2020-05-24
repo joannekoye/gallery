@@ -33,3 +33,12 @@ def sort_by_locations(request):
 
     images = Image.filter_by_location()
     return render(request, 'location.html', {'images': images})
+
+def single_image(request, image_id):
+    '''
+    view function to display a single image and details
+    '''
+
+    image = Image.get_image_by_id(image_id)
+    return render(request, 'single_image.html', {'image': image})
+
