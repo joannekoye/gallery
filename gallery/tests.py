@@ -54,11 +54,6 @@ class ImageTestClass(TestCase):
 
         self.img = Image(img_path = 'Joan.png', img_name = 'passport photo', img_desc ='passport sized photo of Joan', img_location= self.location, img_category = self.category)
 
-    def tearDown(self):
-        Location.objects.all().delete()
-        Category.objects.all().delete()
-        Image.objects.all().delete()
-
     def test_instance(self):
         self.assertTrue(isinstance(self.img, Image))
     
@@ -92,4 +87,9 @@ class ImageTestClass(TestCase):
         self.img.save_image()
         Image.update_desc(self.img.id, 'passport sized photo of Mark')
         self.assertEqual(self.img.img_desc, 'passport sized photo of Mark')
+
+    def tearDown(self):
+        Location.objects.all().delete()
+        Category.objects.all().delete()
+        Image.objects.all().delete()
 
