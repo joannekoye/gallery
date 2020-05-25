@@ -4,3 +4,6 @@ body{
 .title{
     font-family: 'Shadows Into Light', cursive;
 }
+.container{
+    padding-left: 30px;
+}

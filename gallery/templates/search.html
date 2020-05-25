@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
+{{block.super}}
 <div class="container">
 
   <div style="display: flex; text-align: center; margin: 5%;">
     <img src="https://i.pinimg.com/originals/0b/50/30/0b5030fa1af3490323a23a71d3b89839.png" style="width: 12%; border: none"; height="12%; margin-right: 2%">
-    <h1 class="title">NEKOYE'S GALLERIA</h1>
+    <h1 class="title text-center">NEKOYE'S GALLERIA</h1>
   </div>
 
   <hr>
@@ -21,12 +22,20 @@
   <div class="row">
 
   {% if images %}
-    {% for image in images %}
-    <div class="col-xs-12 col-sm-6 col-md-4 column">
-        <h3>{{image.img_name}}</h3>
-        <img src="{{image.img_path.url}}" class="img-responsive">
-        <a href="{% url 'single_image' image.id %}" id='copy'> <button type="button" class="btn btn-success"> Go to Copy Url </button>  </a>
+  {% for image in images %}
+  <div class="card-deck">
+    <div class="col-xs-12 col-md-4 column">
+      <div class="card" style="width: 20rem;">
+        <h3 class="title text-center">{{image.img_name}}</h3>
+        <img class="card-img-top" src="{{image.img_path.url}}" alt=" ">
+        <div class="card-body">
+          <p class="card-text">Description:{{image.img_desc}}</p>
+          <a href="{% url 'single_image' image.id %}" id='copy'> <button type="button" class="btn btn-success"> Go to Copy Url </button> </a>
+        </div>
       </div>
+      <br>
+    </div>
+  </div>
 
       <div id="myModal" class="modal">
         <!-- The Close Button -->
