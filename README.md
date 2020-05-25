@@ -8,7 +8,6 @@ A personal gallery where I showcase photos to the world. Users have the option o
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
 * Install pip
 * Install all dependencies in the requirements.txt file
 
